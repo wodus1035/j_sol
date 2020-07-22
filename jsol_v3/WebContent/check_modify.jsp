@@ -17,9 +17,7 @@
 		<link type="text/css" href="resources/framework/g2minTemplate/css/site-function.css" rel="stylesheet" />
 
 <% 
-if(session.getAttribute("c_type") == null || session.getAttribute("c_name") == null){
-	out.println("<script>alert('로그인이 필요합니다!');location.href='login.jsp';</script>");
-}
+
 request.setCharacterEncoding("UTF-8"); 
 
 int number = Integer.parseInt(request.getParameter("number"));
@@ -31,13 +29,16 @@ String phone = check_list.get(0).getPhone();
 String purpose = check_list.get(0).getCategory();
 String purpose1 = "";
 String purpose2 = "";
-if(purpose.contains("(")){
-	purpose1 = purpose.substring(0, purpose.indexOf("("));
-	purpose2 = purpose.substring(purpose.indexOf("(") + 1, purpose.indexOf(")"));
+if(purpose!=null){
+	if(purpose.contains("(")){
+		purpose1 = purpose.substring(0, purpose.indexOf("("));
+		purpose2 = purpose.substring(purpose.indexOf("(") + 1, purpose.indexOf(")"));
+	}else{
+		purpose1 = purpose;
+	}
 }else{
-	purpose1 = purpose;
+	purpose1 = "-";
 }
-	
 
 
 %>
@@ -183,17 +184,18 @@ if(purpose.contains("(")){
 <body>
 <body class="bg-primary login-body">
 <div class="card shadow-lg border-0 rounded-lg">
-								<div class="card-header"><h3 class="text-center font-weight-light my-4">회원정보수정</h3></div>
+								<div class="card-header"><h3 class="text-center font-weight-light my-4">방문유형 수정</h3></div>
 								<div class="card-body">
 									<form id="check_modify" name="check_modify" method="post" action="check_modify_pro.jsp" onsubmit="return checkValue()">
 									<input type="hidden" id="number" name="number" value="<%=number%>">
 										<input type="hidden" id="procMode" name="procMode" value=""/>
-										<div class="form-group"><label class="small mb-1" for="c_id">이름</label>
-											<input class="form-control py-4" id="name" name="name" type="text" value="<%=name%>"/>
+										<div class="form-group"><label class="small mb-1" for="c_id" >이름</label>
+											<input class="form-control py-4" id="name" name="name" type="text" value="<%=name%>" disabled="disabled"/>
 										</div>
-										<div class="form-group"><label class="small mb-1" for="c_pw">전화번호</label>
-											<input class="form-control py-4" id="phone" name="phone" type="text" placeholder="ex)010-0000-0000" 
+										<div class="form-group"><label class="small mb-1" for="c_pw" >전화번호</label>
+											<input class="form-control py-4" id="phone" name="phone" type="text" disabled="disabled" placeholder="ex)010-0000-0000" 
 											maxlength="13" oninput=" numberMaxLength(this);" numberOnly value="<%=phone%>"/>
+											<input type="hidden" name="phone_hidden" value="<%=phone %>">
 										</div>
 										<div class="insf" style="text-align:left;">
 										<%for(int i = 0; i < hd.length; i ++){ %>

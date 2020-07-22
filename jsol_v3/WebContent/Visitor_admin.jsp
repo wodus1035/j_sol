@@ -276,7 +276,22 @@ if("M".equals(c_type)){
 							<td><%=list.get(i).getCreatetime().split(" ")[0] %></td>
 							<td><%=list.get(i).getBirth()%></td>
 							<td><div class="copy" onclick="copytext(this)"><%=list.get(i).getPhone()%> </div></td>
-							<td><%=list.get(i).getPurpose()%></td>
+							
+							
+							<% 
+								String purpose_type = dao.getMember_purpose(list.get(i).getName(), list.get(i).getPhone(), c_type);
+								if(purpose_type != null){
+									%>
+									<td><%=purpose_type%></td>
+									<%
+								}else{
+									%>
+									<td>-</td>
+									<%
+								}
+							%>
+							
+							
 								<% if(list.get(i).getIs_sign().equalsIgnoreCase("y") || list.get(i).getIs_sign().equalsIgnoreCase("yes") ){
 									Accept = "동의";	 
 								}

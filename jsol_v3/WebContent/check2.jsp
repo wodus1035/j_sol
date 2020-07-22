@@ -3,6 +3,7 @@
 <%@ page import="DB_Util.BoardDAO" %>
 <%
 request.setCharacterEncoding("utf-8");
+String c_type = (String)session.getAttribute("c_type");
  //main에서 입력한 이름과 전화번호를 getParameter로 받기
  String name = request.getParameter("name");
  String phone = request.getParameter("phone");
@@ -22,11 +23,23 @@ String birth = "";
 //else 구문 : main에서 입력받은 name과 phone number가 database에 저장된 phone number와 일치한지의 유무 판단. 
  else{  
 	 BoardDAO dao = BoardDAO.getInstance();
-	 Member m = dao.getMember_by_name(company_id, name, phone);
+	 Member m = dao.getMember_by_name(company_id, name, phone,c_type);
 	 if(m.getBirth() == null){
 		 out.println("<script>alert('조회결과가 없습니다. 다시 입력주세요');location.href='javascript:history.back()';</script>");
 	 }else{
-		 purpose = m.getPurpose();
+		 
+		 if(c_type.equals("A")){
+			 purpose = m.getPurposeA();
+		 }else if(c_type.equals("B")){
+			 purpose = m.getPurposeB();
+			 System.out.println("purpose: " + purpose);
+		 }else if(c_type.equals("C")){
+			 purpose = m.getPurposeC();
+		 }else if(c_type.equals("D")){
+			 purpose = m.getPurposeD();
+		 }else{
+			 purpose = m.getPurpose();	 
+		 }
 		 createtime = m.getCreatetime();
 		 birth = m.getBirth();
 	 }

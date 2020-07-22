@@ -155,8 +155,8 @@
 	<div class="farae">
 		<div>방문을 위한 개인 정보 제공에 동의합니다.</div>
 		<div class="insf">
-			<label class="box-radio-input"><input type="radio" name="is_sign" value="yes" checked /> <span>동의</span></label>
-			<label class="box-radio-input"><input type="radio" name="is_sign" value="no" /> <span>동의안함</span></label>
+			<label class="box-radio-input"><input type="radio" name="is_sign" value="Y" checked /> <span>동의</span></label>
+			<label class="box-radio-input"><input type="radio" name="is_sign" value="N" /> <span>동의안함</span></label>
 		</div>
 	</div>
 

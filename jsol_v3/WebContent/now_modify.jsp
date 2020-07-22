@@ -184,17 +184,19 @@ if(purpose.contains("(")){
 <body>
 <body class="bg-primary login-body">
 <div class="card shadow-lg border-0 rounded-lg">
-								<div class="card-header"><h3 class="text-center font-weight-light my-4">회원정보수정</h3></div>
+								<div class="card-header"><h3 class="text-center font-weight-light my-4">방문자현황 수정</h3></div>
 								<div class="card-body">
 									<form id="now_modify" name="now_modify" method="post" action="now_modify_pro.jsp" onsubmit="return checkValue()">
 									<input type="hidden" id="number" name="number" value="<%=number%>">
 										<input type="hidden" id="procMode" name="procMode" value=""/>
 										<div class="form-group"><label class="small mb-1" for="c_id">이름</label>
-											<input class="form-control py-4" id="name" name="name" type="text" value="<%=name%>"/>
+											<input class="form-control py-4" id="name" name="name" type="text" disabled="disabled" value="<%=name%>"/>
+											<input type="hidden" name="name_hidden" value="<%=name%>">
 										</div>
 										<div class="form-group"><label class="small mb-1" for="c_pw">전화번호</label>
-											<input class="form-control py-4" id="phone" name="phone" type="text" placeholder="ex)010-0000-0000" 
+											<input class="form-control py-4" id="phone" name="phone" type="text" disabled="disabled" placeholder="ex)010-0000-0000" 
 											maxlength="13" oninput=" numberMaxLength(this);" numberOnly value="<%=phone%>"/>
+											<input type="hidden" name="phone_hidden" value="<%=phone%>">
 										</div>
 										<div class="form-group"><label class="small mb-1" for="c_name">온도</label>
 											<input class="form-control py-4" id="temperature" name="temperature" type="text" value="<%=temperature%>"/>

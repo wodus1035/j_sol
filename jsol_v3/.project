@@ -3,8 +3,6 @@
 	<name>jsol_v3</name>
 	<comment></comment>
 	<projects>
-		<project>cos</project>
-		<project>xmlbeans-2.6.0</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

@@ -112,9 +112,7 @@ for(int i=0;i<list_row;i++){
     
     list.add(map);	
 }
-}else{
-	out.println("<script>alert('방문자정보가 없습니다.');location.href='Visitor_now.jsp';</script>");
-}
+
 //System.out.println(list);
 
 //MAP의 KEY값을 담기위함
@@ -205,6 +203,9 @@ response.setHeader("Content-Disposition","attachment; filename="+filenameOrg); /
 OutputStream outStream = response.getOutputStream(); // 응답 스트림 객체를 생성한다.
 outStream.write(bytestream); // 응답 스트림에 파일 바이트 배열을 쓴다.
 outStream.close();
+}else{
+	out.println("<script>alert('방문자정보가 없습니다.');location.href='Visitor_now.jsp';</script>");
+}
 
 %>
 

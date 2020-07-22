@@ -169,7 +169,7 @@ outStream.write(bytestream); // 응답 스트림에 파일 바이트 배열을 �
 outStream.close();
 }
 else{
-	out.println("<script>alert('방문자정보가 없습니다.');location.href='Visitor_amdin.jsp';</script>");
+	out.println("<script>alert('방문자정보가 없습니다.');location.href='Visitor_admin.jsp';</script>");
 }
 %>
 

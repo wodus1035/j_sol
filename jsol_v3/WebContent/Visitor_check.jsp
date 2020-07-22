@@ -233,10 +233,9 @@ if("M".equals(c_type)){
 							<%if("A".equals( c_type) || "M".equals( c_type)){ %>
 							<th>타병원입원여부</th>
 							<%} %>
-							
-							
+									
 							<th>개인정보동의</th>
-							<th>최종승인</th>
+							<th>승인</th>
 							<th>비고</th>
 							<th>qr</th>
 						</tr>
@@ -538,7 +537,7 @@ function checkselall(){
 function changeselected(){
 	var number = $(".selectbox:checked").val();
 	url="check_modify.jsp?number="+number;
-	window.open(url, "", "width=400, height=700, left=500, top=50");
+	window.open(url, "", "width=400, height=520, left=500, top=50");
 }
 
 function deleteselected(){

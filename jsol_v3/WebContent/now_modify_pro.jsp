@@ -18,11 +18,14 @@ BoardDAO dao = BoardDAO.getInstance();
 
 
 int number = Integer.parseInt(request.getParameter("number"));
-String name = request.getParameter("name");
-String phone = request.getParameter("phone");
+String name = request.getParameter("name_hidden");
+String phone = request.getParameter("phone_hidden");
 Float temperature = Float.parseFloat(request.getParameter("temperature"));
 String purpose1 = request.getParameter("purpose1");
 String purpose2 = request.getParameter("purpose2");
+
+
+
 String purpose = purpose1 + "(" + purpose2 + ")";
 String ips_check_flag = request.getParameter("ips_check_flag");
 String fever_check_flag = request.getParameter("fever_check_flag");

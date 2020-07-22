@@ -17,12 +17,13 @@
 <%@page import = "DB_Util.Board"%>
 <%@page import = "DB_Util.BoardDAO"%>
 <%@ include file="form_setup.jsp" %>
+
 <%
 		String formName = "";  
 		String fileName = ""; 		
 		int sizeLimit = 30 * 1024 * 1024 ;
-		Vector vFileName = new Vector();  
-		Vector vFileSize = new Vector();  
+		Vector<Object> vFileName = new Vector<Object>();  
+		Vector<Object> vFileSize = new Vector<Object>();  
 		String[] aFileName = null;  
 		String[] aFileSize = null;  
 		long fileSize = 0;
@@ -33,8 +34,8 @@
 		ServletContext context = getServletContext();
 		savePath = context.getRealPath(saveFolder); 
 			
-		MultipartRequest multi = new MultipartRequest(request, savePath, 5 * 1024 * 1024, "utf-8");
-		Enumeration formNames = multi.getFileNames();
+		MultipartRequest multi = new MultipartRequest(request, savePath, sizeLimit, "utf-8");
+		Enumeration<?> formNames = multi.getFileNames();
 		
 		while (formNames.hasMoreElements()) {   
 			 
@@ -175,8 +176,7 @@
                    
                   // System.out.println("name:  " + name + "birth:   " + birth + "phone:   " + phone + "purpose:  " + purpose1 + "is_sign:  " + is_sign
                 		  // + "creattime:  " + createtime);
-                  
-                  
+                                
                 	long max_number = dao.getM_number();
                 	long m_number = Long.parseLong(date);
                 	
@@ -198,10 +198,10 @@
               }else{
             	  out.println("<script>alert('회원정보를 등록하셨습니다.');location.href='Visitor_admin.jsp'</script>");
               }
+            workbook.close();
         }catch(Exception e) {
             e.printStackTrace();
         }
-		
 		File del_file = new File(savePath+"/"+multi.getFilesystemName("file"));
 		if( del_file.exists() ){ 
 			if(del_file.delete()){ 

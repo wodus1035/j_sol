@@ -2,12 +2,6 @@
     <wb-module deploy-name="jsol_v3">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <dependent-module archiveName="cos.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/cos/cos">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="xmlbeans-2.6.0.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/xmlbeans-2.6.0/xmlbeans-2.6.0">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <property name="context-root" value="jsol_v3"/>
         <property name="java-output-path" value="/jsol_v3/build/classes"/>
     </wb-module>
